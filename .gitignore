@@ -1,0 +1,27 @@
+
+# Qt / CMake / Make build files
+build/
+*.o
+*.obj
+*.exe
+*.user
+*.pro.user
+*.user.*
+*.autosave
+
+# QtCreator
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.qmlproject.user
+*.qmlproject.user.*
+*.log
+
+# CMake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles/
+cmake-build-*/
+
+# Other
+*.DS_Store
