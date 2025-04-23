@@ -70,6 +70,8 @@ QtMRL/
 
 Assure-toi d’avoir Qt 6 installé avec Qt Creator ou `qmake` :
 ```bash
+git clone https://github.com/LazzouziYoussefEtu/QtMRL
+cd QtMRL
 qmake && make
 ./QtMRL
 ```
