@@ -1,74 +1,70 @@
+
 # QtMRL — Qt Moniteur de Ressources Linux
 
-**QtMRL** est une application graphique développée en C++ avec Qt, permettant de surveiller les ressources système sous Linux. Elle fournit une visualisation en temps réel des signaux tels que la puissance du signal WiFi, l'utilisation de la mémoire, et plus encore (en cours de développement).
+**QtMRL** est une application graphique développée en C++ avec Qt 6, conçue pour surveiller les ressources système sous Linux en temps réel. L’application fournit une interface claire avec des graphiques dynamiques pour observer l’utilisation du CPU, de la RAM, et la puissance du signal WiFi.
 
 ---
 
 ## 📌 Objectifs
 
-- Fournir une interface fluide et moderne pour surveiller les ressources système.
-- Visualiser la puissance du signal WiFi en temps réel (dBm).
-- Préparer l'intégration future de l'utilisation du CPU, RAM, swap, processus, etc.
+- Offrir une interface moderne et fluide pour surveiller les performances du système.
+- Visualiser en temps réel :
+  - la puissance du signal WiFi,
+  - l'utilisation de la mémoire vive (RAM),
+  - l'activité du processeur (CPU).
+- Étendre vers un moniteur complet (swap, processus, réseau...).
 
 ---
 
-## ⚙️ Technologies utilisées
+## ⚙️ Techniques utilisées
 
-- **C++**
-- **Qt 6** (Widgets, Charts, QTimer, QProcess, QRegularExpression)
-- **Linux CLI tools** : `iwconfig`, `ifconfig` (en remplacement possible)
-- **QChartView** pour les graphiques dynamiques
+- **Langage** : C++
+- **Framework** : Qt 6 (Widgets, Charts, QTimer, QProcess, QRegularExpression)
+- **Outils Linux** : `iwconfig`, `free`, `top` ou `/proc/stat`
+- **Modules Qt** :
+  - `QChartView`, `QLineSeries`, `QTimer`, `QProcess`
+  - `QValueAxis` pour personnaliser les axes
+  - `QRegularExpression` pour parser les sorties shell
 
 ---
 
 ## 📊 Fonctionnalités actuelles
 
-### 📶 Graphique de puissance du signal WiFi
+### 📶 Signal WiFi (classe `WifiSignalChart`)
+- Détection automatique de l’interface sans-fil active (`detectWifiInterface()`).
+- Extraction du niveau du signal via `iwconfig` (`getSignalStrength()`).
+- Mise à jour toutes les secondes du graphique (`updateChart()`).
 
-- **Méthodes principales :**
-  - `detectWifiInterface()` : détecte automatiquement l'interface sans-fil active.
-  - `getSignalStrength(QString interface)` : utilise `iwconfig` pour extraire le signal (niveau en dBm).
-  - `updateChart()` : met à jour le graphique avec de nouvelles données toutes les secondes.
-  
-- **Attributs importants :**
-  - `QLineSeries *series` : contient les points à afficher.
-  - `QTimer *timer` : déclenche les mises à jour.
-  - `int timeStep` : incrément temporel simulant l’axe X.
-  - `QString wifiInterface` : nom de l'interface WiFi détectée.
+### 💾 Utilisation de la RAM (classe `RamUsageChart`)
+- Exécution de la commande `free -m` pour obtenir la mémoire utilisée.
+- Extraction de la mémoire utilisée par rapport à la mémoire totale.
+- Affichage en temps réel avec une ligne de progression dynamique.
 
-- **Techniques Qt utilisées :**
-  - `QChartView` & `QLineSeries` pour le rendu graphique.
-  - `QValueAxis` pour personnaliser les axes X et Y.
-  - `QRegularExpression` pour extraire les valeurs du signal.
-  - `QProcess` pour exécuter des commandes shell.
+### 🧠 Activité CPU (classe `CpuUsageChart`)
+- Lecture des données depuis `/proc/stat`.
+- Calcul de l'utilisation active du CPU à chaque seconde.
+- Affichage en ligne du taux d'occupation du processeur.
 
 ---
 
-## 📁 Structure du projet (extrait)
+## 📁 Structure du projet
 
 ```
 QtMRL/
 ├── main.cpp
-├── wifisignalchart.h
-├── wifisignalchart.cpp
-├── QtMRL.pro
+├── wifisignalchart.{h,cpp}
+├── ramusagechart.{h,cpp}
+├── cpuusagechart.{h,cpp}
+├── cpuusagechart.ui
+├── cpuusagechart.pro
 └── README.md
 ```
 
----
 
-## 🚀 À venir
+## 🧪 Compilation
 
-- Affichage de l'utilisation de la RAM.
-- Monitoring CPU et processus.
-- Ajout d'icônes système, thème clair/sombre.
-- Export des données.
+Assure-toi d’avoir **Qt 6** installé avec `qmake` et `make` :
 
----
-
-## 📦 Compilation
-
-Assure-toi d’avoir Qt 6 installé avec Qt Creator ou `qmake` :
 ```bash
 git clone https://github.com/LazzouziYoussefEtu/QtMRL
 cd QtMRL
@@ -78,7 +74,7 @@ qmake && make
 
 ---
 
-## 🧑‍💻 Auteur
+## 👨‍💻 Auteur
 
 Développé par **Youssef Lazzouzi**  
 🔗 GitHub : [LazzouziYoussefEtu](https://github.com/LazzouziYoussefEtu)
@@ -87,4 +83,4 @@ Développé par **Youssef Lazzouzi**
 
 ## 📜 Licence
 
-Projet open-source, sous licence MIT.
+Ce projet est open-source sous licence MIT
