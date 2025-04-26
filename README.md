@@ -66,16 +66,8 @@ QtMRL/
 
 ## 🧪 Compilation
 
-Assure-toi d’avoir **Qt 6** installé avec `qmake` et `make` :
-
-```bash
-git clone https://github.com/LazzouziYoussefEtu/QtMRL
-cd QtMRL
-qmake && make
-./QtMRL
-```
-
----
+ouvriez le project dans qt-creator, clickez sur ctrl+r
+compilation cli indisponible
 
 ## 👨‍💻 Auteur
 
