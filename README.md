@@ -51,13 +51,16 @@
 
 ```
 QtMRL/
+├── README.md
 ├── main.cpp
-├── wifisignalchart.{h,cpp}
-├── ramusagechart.{h,cpp}
-├── cpuusagechart.{h,cpp}
-├── cpuusagechart.ui
-├── cpuusagechart.pro
-└── README.md
+├── includes
+│   ├── cpuusagechart.h
+│   ├── ramusagechart.h
+│   └── wifisignalchart.h
+└── src
+    ├── cpuusagechart.cpp
+    ├── ramusagechart.cpp
+    └── wifisignalchart.cpp
 ```
 
 
