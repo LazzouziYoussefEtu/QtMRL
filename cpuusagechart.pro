@@ -12,14 +12,14 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    cpuusagechart.cpp \
-    ramusagechart.cpp \
-    wifisignalchart.cpp
+    src/cpuusagechart.cpp \
+    src/ramusagechart.cpp \
+    src/wifisignalchart.cpp
 
 HEADERS += \
-    cpuusagechart.h \
-    ramusagechart.h \
-    wifisignalchart.h
+    includes/cpuusagechart.h \
+    includes/ramusagechart.h \
+    includes/wifisignalchart.h
 
 FORMS += \
     cpuusagechart.ui
