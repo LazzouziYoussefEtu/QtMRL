@@ -62,12 +62,21 @@ QtMRL/
     ├── ramusagechart.cpp
     └── wifisignalchart.cpp
 ```
-
+📌 Dépendances
+Pour compiler et exécuter ce projet, vous devez installer les dépendances suivantes :
+```bash
+sudo apt-get update
+sudo apt-get install qtbase6-dev libqt6charts-dev libqt6openglwidgets-dev qt6-qmake qt6-tools-dev g++ make libgl1-mesa-dev
+```
 
 ## 🧪 Compilation
+``` bash
+git clone https://github.com/LazzouziYoussefEtu/QtMRL
+cd QtMRL
+qmake && make 
+./QtMRL
+```
 
-ouvriez le project dans qt-creator, clickez sur ctrl+r
-compilation cli indisponible
 
 ## 👨‍💻 Auteur
 
