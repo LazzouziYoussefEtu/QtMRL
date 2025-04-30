@@ -1,9 +1,10 @@
 #pragma once
 
-#include <QtCharts/QChartView>
-#include <QtCharts/QLineSeries>
 #include <QTimer>
 #include <QValueAxis>
+#include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>
+#include <QGraphicsTextItem>
 QT_USE_NAMESPACE
 
     class WifiSignalChart : public QChartView {
@@ -23,6 +24,6 @@ private:
     int getSignalStrength(const QString &interface);
     QString getWifiSSID(const QString &interface);
     void updateChart();
+
+    QGraphicsTextItem *ssidTextItem;
 };
-
-
