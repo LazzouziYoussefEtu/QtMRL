@@ -18,7 +18,7 @@ HEADERS += \
     includes/wifisignalchart.h
 
 FORMS += \
-    cpuusagechart.ui
+    QtMRL.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
