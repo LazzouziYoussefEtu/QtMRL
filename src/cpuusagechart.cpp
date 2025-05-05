@@ -13,7 +13,7 @@ CpuUsageChart::CpuUsageChart(QWidget *parent)
   this->setRenderHint(QPainter::Antialiasing);
 
   connect(timer, &QTimer::timeout, this, &CpuUsageChart::updateChart);
-  timer->start(250); // Update every second
+  timer->start(250); 
 }
 
 void CpuUsageChart::updateChart() {
